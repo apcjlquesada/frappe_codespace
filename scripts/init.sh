@@ -35,7 +35,7 @@ sed -i '/redis/d' ./Procfile
 
 
 bench new-site dev.localhost \
---mariadb-root-password=123 \
+--db-root-password=123 \
 --admin-password=admin \
 --mariadb-user-host-login-scope='%'
 
