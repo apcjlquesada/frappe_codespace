@@ -25,7 +25,7 @@ frappe-bench
 cd frappe-bench
 
 # Use containers instead of localhost
-bench set-mariadb-host mariadb
+bench set-config -g db_host mariadb
 bench set-redis-cache-host redis-cache:6379
 bench set-redis-queue-host redis-queue:6379
 bench set-redis-socketio-host redis-socketio:6379
@@ -34,12 +34,7 @@ bench set-redis-socketio-host redis-socketio:6379
 sed -i '/redis/d' ./Procfile
 
 
-bench new-site dev.localhost 
---db-root-password=123 
---admin-password=admin 
---mariadb-user-host-login-scope='%' 
-
-
+bench new-site dev.localhost  --db-root-password 123  --admin-password admin  --mariadb-user-host-login-scope='%' 
 bench --site dev.localhost set-config developer_mode 1
 bench --site dev.localhost clear-cache
 bench use dev.localhost
